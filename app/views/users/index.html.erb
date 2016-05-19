@@ -1,0 +1,10 @@
+<table>
+  <tr>
+    <th>Email</th>
+  </tr>
+  <% @users.each do |user| %>
+  <td><%= user.email %></td>
+  <th><%= link_to("Assign_Role", {action: 'edit', id: user.id}) %></th>
+</tr>
+<% end %>
+</table>

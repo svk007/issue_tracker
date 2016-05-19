@@ -1,0 +1,9 @@
+<%= form_for(:user, url: {action: 'update', id: params[:id]}) do |f| %>
+
+	<%= hidden_field_tag "user[role_ids][]", nil  %>
+	<% Role.all.each do |role| %>
+		<%= check_box_tag "user[role_ids][]", role.id, @user.role_ids.include?(role.id) %>
+		<%= role.title.capitalize %>
+	<% end %>
+	<%= submit_tag("Update Role") %>
+<% end %>
