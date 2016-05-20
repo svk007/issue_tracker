@@ -1,0 +1,21 @@
+<table class="table table-hover">
+  <tr>
+    <th>Ticket Number</th>
+    <th>Heading</th>
+    <th>Description</th>
+    <th>Status</th>
+  </tr>
+  <% @issues.each do |data| %>
+  <td><%= data.ticket_no %></td>
+  <td><%= data.heading %></td>
+  <td><%= data.description %></td>
+  <td><%= data.status %></td>
+  <td><% if data.status == "Assigned" %>
+        <%= link_to "Start", action: 'start_work', id: data.id %>
+    <% elsif data.status == "In Progress" %>
+        <%= link_to "Finish", action: 'finish_work', id: data.id %>
+    <% end %>
+  </td>
+</tr>
+<% end %>
+</table>

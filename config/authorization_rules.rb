@@ -2,7 +2,7 @@ authorization do
   role :Developer do
     # add permissions for guests here, e.g.
     # has_permission_on :conferences, :to => :read
-    has_permission_on :issues, to: [:index, :show]
+    has_permission_on :issues, to: [:index, :show, :my_issues, :start_work, :finish_work]
   end
   
   # permissions on other roles, such as

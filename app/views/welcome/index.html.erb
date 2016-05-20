@@ -4,3 +4,4 @@
 <%= button_to("Edit Submitted Issues" , action: 'show_user_submissions', controller: 'issues') if permitted_to? :create, :issues %>
 <%= button_to("See All Issues" , issues_path, method: :get) if permitted_to? :index, :issues %>
 <%= button_to("See All Users" , action: :index, controller: 'users') if permitted_to? :index, :users %>
+<%= button_to("See My Assigned Issues", action: 'my_issues', controller: 'issues') if has_role?(:Developer) %>
