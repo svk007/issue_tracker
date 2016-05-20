@@ -4,7 +4,7 @@
   </tr>
   <% @devs.each do |user| %>
   	<td><%= user.email %></td>
-  	<td>Assign</td>
+  	<td><%= link_to "Assign", {:controller => "issues", :action => "assign_dev", :id => params[:id], :id2 => user.id }%></td>
   	</tr>
   <% end %>
 </table>

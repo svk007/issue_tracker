@@ -12,7 +12,7 @@ class IssuesController < ApplicationController
       render('new')
     end
     token = rand(36**8).to_s(36)
-    @issue.update_attributes(ticket_no: token, user_id: current_user.id, status: 'Not Assigned')
+    @issue.update_attributes(ticket_no: token, user_id: current_user.id)
   end
 
   def show_devs
@@ -21,6 +21,14 @@ class IssuesController < ApplicationController
       if user.role_ids.include?(2)
         @devs << user
       end
+    end
+  end
+
+  def assign_dev
+    @user = User.find_by_id(params[:id2])
+    @issue = Issue.find_by_id(params[:id])
+    if @issue.update_attributes(developer: @user.email, status: "In Progress")
+      redirect_to(action: 'index')
     end
   end
 

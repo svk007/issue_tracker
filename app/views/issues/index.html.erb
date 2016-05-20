@@ -9,8 +9,12 @@
   <td><%= data.ticket_no %></td>
   <td><%= data.heading %></td>
   <td><%= data.description %></td>
-  <td><%= data.status %></td>
-  <td> <%= link_to 'Assign', action: 'show_devs', id: data.id %></td>
+  <td><% if data.status.blank? %>
+     <%= link_to 'Assign', action: 'show_devs', id: data.id if permitted_to? :index, :users %>
+  <% else %>
+    <%= data.status %>
+  <% end %>
+</td>
 </tr>
 <% end %>
 </table>
