@@ -3,13 +3,13 @@
     <th>Ticket Number</th>
     <th>Heading</th>
     <th>Description</th>
+    <th>Status</th>
   </tr>
   <% @issues.each do |data| %>
   <td><%= data.ticket_no %></td>
   <td><%= data.heading %></td>
   <td><%= data.description %></td>
-  <td>
-  </td>
+  <td><%= data.status %></td>
 </tr>
 <% end %>
 </table>

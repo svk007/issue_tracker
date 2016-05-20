@@ -11,7 +11,7 @@ class IssuesController < ApplicationController
       render('new')
     end
     token = rand(36**8).to_s(36)
-    @issue.update_attributes(ticket_no: token, user_id: current_user.id)
+    @issue.update_attributes(ticket_no: token, user_id: current_user.id, status: 'Not Assigned')
   end
 
   def show_user_submissions
@@ -23,6 +23,6 @@ class IssuesController < ApplicationController
 
  	private 
   def issue_params
-    params.require(:issues).permit(:heading, :description, :user_id)
+    params.require(:issues).permit(:heading, :description, :user_id, :status)
   end
 end
