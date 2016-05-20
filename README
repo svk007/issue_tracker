@@ -1,0 +1,3 @@
+A customer issue tracking system where logged in users register the issue and are provided with a token number. Users can be assigned special roles such as admin and developers. admins can provide roles to other users, and assign issues to developers. Developers can view the issues and resolve them to update the status.
+
+Links are visible as per user role. And an admin can only view users.
