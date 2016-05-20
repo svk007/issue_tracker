@@ -8,8 +8,8 @@ class UsersController < ApplicationController
 		@user = User.find_by_id(params[:id])
 	end
 
-def update
-	@user = User.find_by_id(params[:id])
+  def update
+	 @user = User.find_by_id(params[:id])
     if @user.update_attributes(user_params)
       flash[:notice] = "Role assigned successfully" 
       redirect_to(action: 'index')

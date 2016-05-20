@@ -15,6 +15,15 @@ class IssuesController < ApplicationController
     @issue.update_attributes(ticket_no: token, user_id: current_user.id, status: 'Not Assigned')
   end
 
+  def show_devs
+    @devs=[]
+    User.all.each do |user|
+      if user.role_ids.include?(2)
+        @devs << user
+      end
+    end
+  end
+
   def show_user_submissions
   	@issues = current_user.issues
   end

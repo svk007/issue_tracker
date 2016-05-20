@@ -10,6 +10,7 @@
   <td><%= data.heading %></td>
   <td><%= data.description %></td>
   <td><%= data.status %></td>
+  <td> <%= link_to 'Assign', action: 'show_devs', id: data.id %></td>
 </tr>
 <% end %>
 </table>
