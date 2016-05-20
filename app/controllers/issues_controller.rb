@@ -1,4 +1,5 @@
 class IssuesController < ApplicationController
+  filter_access_to :all
   def index
   	@issues=Issue.all
   end
